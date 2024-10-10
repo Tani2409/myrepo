@@ -57,3 +57,4 @@ kubectl -n redis get pv
 kubectl -n redis logs sentinel-0
 ```
 test
+anh ku
