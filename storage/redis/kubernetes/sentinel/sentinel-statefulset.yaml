@@ -20,10 +20,10 @@ spec:
         args:
           - |
             REDIS_PASSWORD=a-very-complex-password-here
-            nodes=redis-0.redis,redis-1.redis,redis-2.redis
-            loop=$(echo $nodes | sed -e "s/,/\n/g")
+            nodes=redis-0.redis.redis.svc.cluster.local,redis-1.redis.redis.svc.cluster.local,redis-2.redis.redis.svc.cluster.local
+            
 
-            for i in $loop
+            for i in ${nodes//,/ }
             do
                 echo "finding master at $i"
                 MASTER=$(redis-cli --no-auth-warning --raw -h $i -a $REDIS_PASSWORD info replication | awk '{print $1}' | grep master_host: | cut -d ":" -f2)
