@@ -56,3 +56,5 @@ kubectl -n redis get pods
 kubectl -n redis get pv
 kubectl -n redis logs sentinel-0
 ```
+abcv
+qweqweqweqweqw
